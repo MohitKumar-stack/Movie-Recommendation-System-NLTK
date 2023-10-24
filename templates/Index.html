@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #34495E; /* Background color */
+            color: #fff; /* Text color */
+            text-align: center;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #3498db; /* Container background color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #fff;
+        }
+
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #2980b9; /* Border color */
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #2980b9; /* Button color */
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2574a9; /* Button color on hover */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            background-color: #34495E; /* List item background color */
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        li:hover {
+            background-color: #2c3e50; /* List item background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation System</h1>
+        <form method="POST" action="/">
+            <select name="movie_name">
+                {% for item in data %}
+                    <option value="{{ item }}">{{ item }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="container">
+        <h1>Movies Recommended</h1>
+        <ul>
+            {% for item in output_list %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
