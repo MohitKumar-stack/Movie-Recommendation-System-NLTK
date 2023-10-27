@@ -2,6 +2,7 @@ from flask import Flask,request
 import pandas
 from flask import render_template
 import json
+
 with open('movies_list.json', 'r') as json_file:
         data = json.load(json_file)
 with open('similarity.json', 'r') as json_file:
